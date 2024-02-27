@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Layout</title>
+</head>
+
+  <body>
+    <!--8.	You can see a nav element with a corresponding id="navbar" -->
+    <nav id="navbar">
+      <!--9.	The navbar element should contain one header element which contains text that describes the topic of the technical documentation 
+      11.	The header element in the #navbar must come before any link (a) elements in the navbar -->
+      <header>CSS Layout</header>
+      <ul>
+        <!--10.	Additionally, the navbar should contain link (a) elements with the class of nav-link. There should be one for every element with the class main-section
+        12.	Each element with the class of nav-link should contain text that corresponds to the header text within each section (e.g. if you have a "Hello world" section/header, your navbar should have an element which contains the text "Hello world") 
+        13.	When you click on a navbar element, the page should navigate to the corresponding section of the #main-doc element (e.g. If you click on a .nav-link element that contains the text "Hello world", the page navigates to a section element with that id, and contains the corresponding header)
+        14.	On regular sized devices (laptops, desktops), the element with id="navbar" should be shown on the left side of the screen and should always be visible to the user -->
+        <li><a class="nav-link" href="#Normal_Flow">Normal Flow</a></li>
+        <li><a class="nav-link" href="#FlexBox">FlexBox</a></li>
+        <li><a class="nav-link" href="#Grids">Grids</a></li>
+        <li><a class="nav-link" href="#Floats">Floats</a></li>
+        <li><a class="nav-link" href="#Positioning">Positioning</a></li>
+        <li><a class="nav-link" href="#Reference">Reference</a></li>
+      </ul>
+    </nav>
+
+    <!--1.	You can see a main element with a corresponding id="main-doc", which contains the page's main content (technical documentation) -->
+    <main id="main-doc">
+      <!--2.	Within the #main-doc element, you can see several section elements, each with a class of main-section. There should be a minimum of five 
+      4.	Each section element with the class of main-section should also have an id that corresponds with the text of each header contained within it. Any spaces should be replaced with underscores (e.g. The section that contains the header "JavaScript and Java" should have a corresponding id="JavaScript_and_Java") -->
+      
+      <section class="main-section" id="Normal_Flow">
+        <!--3.	The first element within each .main-section should be a header element, which contains text that describes the topic of that section. -->
+        <header>Normal Flow</header>
+        <!--5.	The .main-section elements should contain at least ten p elements total (not each)-->
+        <article>
+          <p>
+            The process begins as the boxes of individual elements are laid out in such a way that any padding, border, or margin they happen to have is added to their content. This is what we call the box model.
+          </p>
+          <p>
+            By default, a block-level element's content fills the available inline space of the parent element containing it, growing along the block dimension to accommodate its content. The size of inline-level elements is just the size of their content. You can set <span class="term">width</span> or <span class="term">height</span> on some elements that have a default <span class="term">display</span> property value of <span class="term">inline</span>, like image, but <span class="term">display</span> value will still remain <span class="term">inline</span>.
+          </p>
+          <p>If you want to control the <span class="term">display</span> property of an inline-level element in this manner, use CSS to set it to behave like a block-level element (e.g., with <span class="term">display: block;</span> or <span class="term">display: inline-block;</span>, which mixes characteristics from both).
+          </p>
+          <p>
+            Inline elements behave differently. They don't appear on new lines; instead, they all sit on the same line along with any adjacent (or wrapped) text content as long as there is space for them to do so inside the width of the parent block level element. If there isn't space, then the overflowing content will move down to a new line.
+          </p>
+          
+          <!-- 7.	The .main-section elements should contain at least five li items total (not each) -->
+          <code>
+          body {
+            width: 500px;
+            margin: 0 auto;
+          }
+          p {
+            background: rgba(255, 84, 104, 0.3);
+            border: 2px solid rgb(255, 84, 104);
+            padding: 10px;
+            margin: 10px;
+          }
+          span {
+            background: white;
+            border: 1px solid black;
+          }          
+          </code>
+        </article>
+      </section>
+
+      <section class="main-section" id="FlexBox">
+        <header>FlexBox</header>
+        <article>
+          <p>
+            Flexbox is a one-dimensional layout method for laying out items in rows or columns. Items flex to fill additional space and shrink to fit into smaller spaces. This article explains all the fundamentals. After studying this guide you can test your flexbox skills to check your understanding before moving on.
+          </p>
+          <p>
+            The following simple layout designs are either difficult or impossible to achieve with such tools in any kind of convenient, flexible way:
+          </p>
+          <ul>
+            <li>Vertically centering a block of content inside its parent.</li>
+            <li>Making all the children of a container take up an equal amount of the available width/height, regardless of how much width/height is available.</li>
+            <li>Making all columns in a multiple-column layout adopt the same height even if they contain a different amount of content.</li>
+          </ul>
+          <p>
+            When elements are laid out as flex items, they are laid out along two axes:
+          </p>
+          <ul>
+            <li>
+              The main axis is the axis running in the direction the flex items are laid out in (for example, as a row across the page, or a column down the page.) The start and end of this axis are called the main start and main end.
+            </li>
+            <li>The cross axis is the axis running perpendicular to the direction the flex items are laid out in. The start and end of this axis are called the cross start and cross end.
+              </li>
+            <li>
+              The parent element that has <span class="term">display: flex</span> set on it (the section in our example) is called the flex container.
+            </li>
+            <li>
+              The items laid out as flexible boxes inside the flex container are called flex items (the article elements in our example).
+            </li>
+          </ul>
+          
+          <code>
+            section {
+              display: flex;
+            }            
+          </code>
+        </article>
+      </section>
+
+      <section class="main-section" id="Grids">
+        <header>Grids</header>
+        <article>
+          <p>
+            CSS Grid Layout is a two-dimensional layout system for the web. It lets you lay content out in rows and columns, and has many features that make building complex layouts straightforward. This article will give you all you need to know to get started with page layout, then test your grid skills before moving on.
+          </p>
+          <p>
+            A grid is a collection of horizontal and vertical lines creating a pattern against which we can line up our design elements. They help us to create layouts in which our elements won't jump around or change width as we move from page to page, providing greater consistency on our websites.
+          </p>
+          <p>
+            To create gaps between tracks, we use the properties:
+          </p>
+          <ul>
+            <li>column-gap for gaps between columns</li>
+            <li>row-gap for gaps between rows</li>
+            <li>gap as a shorthand for both</li>
+          </ul>
+          <p>We've only specified column tracks so far, yet rows are being created to hold our content. This is an example of the explicit versus the implicit grid. The difference:
+          </p>
+          <ul>
+            <li>Explicit grid: Created using grid-template-columns or grid-template-rows.</li>
+            <li>Implicit grid: Extends the defined explicit grid when content is placed outside of that grid, such as into our rows by drawing additional grid lines.</li>
+          </ul>
+          <code>
+            header {
+              grid-column: 1 / 3;
+              grid-row: 1;
+            }
+            article {
+              grid-column: 2;
+              grid-row: 2;
+            }
+            aside {
+              grid-column: 1;
+              grid-row: 2;
+            }
+            footer {
+              grid-column: 1 / 3;
+              grid-row: 3;
+            }
+          </code>            
+          
+        </article>
+      </section>
+      <section class="main-section" id="Floats">
+        <header>Floats</header>
+        <p>
+          Originally for floating images inside blocks of text, the float property became one of the most commonly used tools for creating multiple column layouts on webpages. With the advent of Flexbox and Grid it has now returned to its original purpose, as this article explains.
+        </p>
+        <p>
+          The float property was introduced to allow web developers to implement layouts involving an image floating inside a column of text, with the text wrapping around the left or right of it. The kind of thing you might get in a newspaper layout.
+        </p>
+        <p>
+          You should see that the second paragraph now clears the floated element and no longer comes up alongside it. The clear property accepts the following values:
+        </p>
+        <ul>
+          <li>left: Clear items floated to the left.</li>
+          <li>right: Clear items floated to the right.</li>
+          <li>both: Clear any floated items, left or right.</li>
+        </ul>
+        <code>
+          body {
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
+            font:
+              0.9em/1.2 Arial,
+              Helvetica,
+              sans-serif;
+          }
+          .box {
+            width: 150px;
+            height: 100px;
+            border-radius: 5px;
+            background-color: rgb(207, 232, 220);
+            padding: 1em;
+          }
+        </code>
+        
+      </section>
+      <section class="main-section" id="Positioning">
+        <header>Positioning</header>
+        <!-- 6.	The .main-section elements should contain at least five code elements total (not each) 
+        -->
+        <article>
+          <p>
+            Positioning allows you to take elements out of the normal document layout flow and make them behave differently, for example, by sitting on top of one another, or by always remaining in the same place inside the browser viewport. This article explains the different position values and how to use them.
+          </p>
+          <p>
+            Positioning allows us to produce interesting results by overriding normal document flow. What if you want to slightly alter the position of some boxes from their default flow position to give a slightly quirky, distressed feel? Positioning is your tool. Or what if you want to create a UI element that floats over the top of other parts of the page and/or always sits in the same place inside the browser window no matter how much the page is scrolled? Positioning makes such layout work possible.
+          </p>          
+          <code>
+            .positioned {
+              position: static;
+              background: yellow;
+            }
+          </code>            
+          <p>
+            All this absolute positioning is good fun, but there's another feature we haven't considered yet. When elements start to overlap, what determines which elements appear over others and which elements appear under others? In the example we've seen so far, we only have one positioned element in the positioning context, and it appears on the top since positioned elements win over non-positioned elements.
+          </p>
+        </article>
+      </section>
+
+      <section class="main-section" id="Reference">
+        <header>Reference</header>
+        <article>
+          All the documentation in this page is taken from
+          <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout" target="_blank">MDN</a>
+        </article>
+      </section>
+
+    </main>
+  </body>
+</html>
+<!--15.	Your technical documentation should use at least one media query-->
